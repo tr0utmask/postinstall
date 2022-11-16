@@ -3,7 +3,7 @@
 # Arch Linux post-installation script
 
 ## Go home
-cd || exit
+cd ~ || exit
 
 ## Update system
 sudo pacman --noconfirm -Syu
@@ -15,7 +15,7 @@ sudo pacman --noconfirm -S git
 git clone https://aur.archlinux.org/yay
 cd yay || exit
 makepkg --noconfirm -si
-cd || exit
+cd ~ || exit
 
 ## When yay is installed, install the necessary packages
 yay -S adobe-source-han-sans-otc-fonts dunst feh firefox gnome-themes-extra gtk-engines gvim htop libnotify lxappearance mpv mupdf pulseaudio pulseaudio-alsa pulsemixer rxvt-unicode scrot thunar ttf-go-sans-git ttf-ms-fonts tumbler unrar unzip xcape xorg-fonts-misc xorg-server xorg-xinit xorg-xrandr xorg-xset xorg-xsetroot yt-dlp
@@ -50,6 +50,6 @@ echo "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
 
 ## Finalize
 rm -v ~/.bash_*
-cd || exit
+cd ~ || exit
 clear
 printf "The installation finished succesfully. Install the appropriate graphics drivers and reboot the machine to get started.\n\n"
