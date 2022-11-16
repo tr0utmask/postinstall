@@ -14,7 +14,7 @@ sudo pacman --noconfirm -S git
 ## Install yay
 git clone https://aur.archlinux.org/yay
 cd yay || exit
-makepkg -si
+makepkg --noconfirm -si
 cd || exit
 
 ## When yay is installed, install the necessary packages
