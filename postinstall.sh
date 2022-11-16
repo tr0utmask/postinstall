@@ -50,6 +50,5 @@ echo "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
 
 ## Finalize
 rm -v ~/.bash_*
-cd ~ || exit
 clear
 printf "The installation finished succesfully. Install the appropriate graphics drivers and reboot the machine to get started.\n\n"
