@@ -18,9 +18,7 @@ makepkg --noconfirm -si
 cd || exit
 
 ## When yay is installed, install the necessary packages
-yay --useask -S adobe-source-han-sans-otc-fonts dunst feh firefox gnome-themes-extra gtk-engines gvim htop libnotify lxappearance mpv mupdf pulseaudio pulseaudio-alsa pulsemixer rxvt-unicode scrot thunar ttf-go-sans-git ttf-ms-fonts tumbler unrar unzip xorg-fonts-misc xorg-server xorg-xinit xorg-xrandr xorg-xset xorg-xsetroot yt-dlp
-
-printf "\nPlease install the appropriate graphics drivers yourself.\n\n"
+yay -S adobe-source-han-sans-otc-fonts dunst feh firefox gnome-themes-extra gtk-engines gvim htop libnotify lxappearance mpv mupdf pulseaudio pulseaudio-alsa pulsemixer rxvt-unicode scrot thunar ttf-go-sans-git ttf-ms-fonts tumbler unrar unzip xcape xorg-fonts-misc xorg-server xorg-xinit xorg-xrandr xorg-xset xorg-xsetroot yt-dlp
 
 ## Clone dotfiles repo
 git clone https://github.com/tr0utmask/dotfiles
@@ -45,3 +43,13 @@ sudo make clean install
 cd ~/.local/src/slock || exit
 sed -i "s/\"user\"/\"$(whoami)\"/" config.h
 sudo make clean install
+
+## Disable pc speaker
+sudo rmmod pcspkr
+echo "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
+
+## Finalize
+rm -v ~/.bash_*
+cd || exit
+clear
+printf "The installation finished succesfully. Install the appropriate graphics drivers and reboot the machine to get started.\n\n"
