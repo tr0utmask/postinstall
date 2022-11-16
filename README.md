@@ -1,5 +1,5 @@
 # Arch Linux post-installation script
 
-A simple post-installation script for Arch Linux. This script assumes you have a base installation of Arch Linux with no existing configurations. Any such configurations will be mercilessly overwritten.
+A simple script that will install my personal dotfiles on a base Arch Linux install. The script assumes that you don't have pre-existing configurations, as those will be mercilessly overwritten. Run the script as a regular user that you intend to use the system as.
 
 Run with ```./postinstall.sh```.
