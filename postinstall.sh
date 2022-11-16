@@ -18,7 +18,7 @@ makepkg --noconfirm -si
 cd || exit
 
 ## When yay is installed, install the necessary packages
-yes | yay -S adobe-source-han-sans-otc-fonts dunst feh firefox gnome-themes-extra gtk-engines gvim htop libnotify lxappearance mpv mupdf pulseaudio pulseaudio-alsa pulsemixer rxvt-unicode scrot thunar ttf-go-sans-git ttf-ms-fonts tumbler unrar unzip xorg-fonts-misc xorg-server xorg-xinit xorg-xrandr xorg-xset xorg-xsetroot yt-dlp
+yay --useask -S adobe-source-han-sans-otc-fonts dunst feh firefox gnome-themes-extra gtk-engines gvim htop libnotify lxappearance mpv mupdf pulseaudio pulseaudio-alsa pulsemixer rxvt-unicode scrot thunar ttf-go-sans-git ttf-ms-fonts tumbler unrar unzip xorg-fonts-misc xorg-server xorg-xinit xorg-xrandr xorg-xset xorg-xsetroot yt-dlp
 
 printf "\nPlease install the appropriate graphics drivers yourself.\n\n"
 
