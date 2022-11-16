@@ -3,7 +3,7 @@
 # Arch Linux post-installation script
 
 ## Go home
-cd || echo "Your home directory is not set. Make sure that you're running this script as a regular user and that you have a home directory." && exit
+cd || exit
 
 ## Update system
 sudo pacman -Syu
@@ -13,9 +13,9 @@ sudo pacman -S git
 
 ## Install yay
 git clone https://aur.archlinux.org/yay
-cd yay || echo "Couldn't enter yay's directory. Did git clone work correctly?" && exit
+cd yay || exit
 makepkg -si
-cd || echo "Your home directory is not set. Make sure that you're running this script as a regular user and that you have a home directory." && exit
+cd || exit
 
 ## When yay is installed, install the necessary packages
 yay -S adobe-source-han-sans-otc-fonts dunst feh firefox gnome-themes-extra gtk-engines gvim htop libnotify lxappearance mpv mupdf pulseaudio pulseaudio-alsa pulsemixer rxvt-unicode scrot thunar ttf-go-sans-git ttf-ms-fonts tumbler unrar unzip xorg-fonts-misc xorg-server xorg-xinit xorg-xrandr xorg-xset xorg-xsetroot yt-dlp
@@ -38,10 +38,10 @@ mkdir -p ~/.config
 cp -rv dotfiles/.config/* ~/.config
 
 ## Build suckless utilities
-cd ~/.local/src/dwm || echo "dwm directory not found. Did it copy over correctly?" && exit
+cd ~/.local/src/dwm || exit
 sudo make clean install
-cd ~/.local/src/dmenu || echo "dmenu directory not found. Did it copy over correctly?" && exit
+cd ~/.local/src/dmenu || exit
 sudo make clean install
-cd ~/.local/src/slock || echo "slock directory not found. Did it copy over correctly?" && exit
+cd ~/.local/src/slock || exit
 sed -i "s/\"user\"/\"$(whoami)\"/" config.h
 sudo make clean install
