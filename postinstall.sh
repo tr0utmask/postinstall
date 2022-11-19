@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Arch Linux / Debian post-installation script
+# Post-installation script for Arch Linux and Debian
 
 ## Go home
 cd ~ || exit
