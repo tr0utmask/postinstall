@@ -11,6 +11,8 @@ then
 
 	# Arch-specific tasks
 
+	operating_system=arch
+
 	## Update system
 	sudo pacman --noconfirm -Syu
 
@@ -30,6 +32,8 @@ elif [ "$(apt -v)" ]
 then
 
 	# Debian-specific tasks
+
+	operating_system=debian
 
 	## Update system
 	sudo apt update && sudo apt upgrade
@@ -73,8 +77,16 @@ cp -rv dotfiles/.config/* ~/.config
 
 ## Build suckless utilities
 cd ~/.local/src/dwm || exit
+if [ "$operating_system" = "debian" ]
+then
+	sed -i 's/Misc\ //g' ~/.local/src/dwm/config.h
+fi
 sudo make clean install
 cd ~/.local/src/dmenu || exit
+if [ "$operating_system" = "debian" ]
+then
+	sed -i 's/Misc\ //g' ~/.local/src/dmenu/config.h
+fi
 sudo make clean install
 cd ~/.local/src/slock || exit
 sed -i "s/\"user\"/\"$(whoami)\"/" config.h
