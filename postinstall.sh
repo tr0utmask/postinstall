@@ -11,8 +11,6 @@ then
 
 	# Arch-specific tasks
 
-	operating_system=arch
-
 	## Update system
 	sudo pacman --noconfirm -Syu
 
@@ -68,6 +66,8 @@ cp -v dotfiles/.bashrc ~
 cp -v dotfiles/.profile ~
 cp -v dotfiles/.xinitrc ~
 cp -rv dotfiles/.vim ~
+mkdir -p ~/.local/share
+cp -rv dotfiles/.local/share/* ~/.local/share
 mkdir -p ~/.local/src
 cp -rv dotfiles/.local/src/* ~/.local/src
 mkdir -p ~/.local/bin
