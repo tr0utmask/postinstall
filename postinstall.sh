@@ -39,7 +39,7 @@ then
 	sudo apt update && sudo apt upgrade
 
 	## Install necessary packages
-	sudo apt install --no-install-recommends bash-completion build-essential curl dunst feh firefox-esr fonts-go git gnome-themes-extra gtk2-engines htop libx11-dev libxft-dev libxinerama-dev libxrandr-dev lm-sensors lxappearance mpv mupdf pulseaudio pulsemixer rxvt-unicode scrot thunar unrar-free unzip vim-gtk3 x11-xserver-utils xcape xinit xserver-xorg-core
+	sudo apt install --no-install-recommends bash-completion build-essential curl dunst feh firefox-esr fonts-go git gnome-themes-extra gtk2-engines htop libx11-dev libxft-dev libxinerama-dev libxrandr-dev lm-sensors lxappearance mpv mupdf pulseaudio pulsemixer rxvt-unicode scrot thunar unrar-free unzip vim-gtk3 x11-xserver-utils xcape xfonts-base xinit xserver-xorg-core
 
 	## Install yt-dlp
 	sudo wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O /usr/local/bin/yt-dlp
