@@ -45,10 +45,14 @@ elif [ "$(apt -v)" ]; then
 	echo "deb http://ftp.de.debian.org/debian bullseye main contrib" | sudo tee -a /etc/apt/sources.list
 	sudo apt update
 	sudo apt install --no-install-recommends ttf-mscorefonts-installer
-	sudo sed -i '/ftp/d' /etc/apt/sources.list
+	sudo sed -i '$ d' /etc/apt/sources.list
 
 	## Allow use of bitmap fonts
-	sudo rm -v /usr/share/fontconfig/conf.avail/*bitmap*
+	cd /etc/fonts/conf.d/
+	sudo rm /etc/fonts/conf.d/10*
+	sudo rm -rf 70-no-bitmaps.conf
+	sudo ln -s ../conf.avail/70-yes-bitmaps.conf .
+	sudo dpkg-reconfigure fontconfig
 
 else
 
