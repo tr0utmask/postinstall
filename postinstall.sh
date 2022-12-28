@@ -6,8 +6,7 @@
 cd ~ || exit
 
 ## Determine which OS we're running
-if [ "$(pacman -V)" ]
-then
+if [ "$(pacman -V)" ]; then
 
 	# Arch-specific tasks
 
@@ -26,8 +25,7 @@ then
 	## When yay is installed, install the necessary packages
 	yay -S adobe-source-han-sans-otc-fonts bash-completion dunst feh firefox gnome-themes-extra gtk-engines gvim htop libnotify lxappearance mpv mupdf pulseaudio pulseaudio-alsa pulsemixer rxvt-unicode scrot thunar ttf-go-sans-git ttf-ms-fonts tumbler unrar unzip xcape xorg-fonts-misc xorg-server xorg-xinit xorg-xrandr xorg-xset xorg-xsetroot yt-dlp
 
-elif [ "$(apt -v)" ]
-then
+elif [ "$(apt -v)" ]; then
 
 	# Debian-specific tasks
 
@@ -77,19 +75,20 @@ cp -rv dotfiles/.config/* ~/.config
 
 ## Build suckless utilities
 cd ~/.local/src/dwm || exit
-if [ "$operating_system" = "debian" ]
-then
+if [ "$operating_system" = "debian" ]; then
 	sed -i 's/Misc\ //g' ~/.local/src/dwm/config.h
 fi
 sudo make clean install
 cd ~/.local/src/dmenu || exit
-if [ "$operating_system" = "debian" ]
-then
+if [ "$operating_system" = "debian" ]; then
 	sed -i 's/Misc\ //g' ~/.local/src/dmenu/config.h
 fi
 sudo make clean install
 cd ~/.local/src/slock || exit
 sed -i "s/\"user\"/\"$(whoami)\"/" config.h
+if [ "$operating_system" = "debian" ]; then
+	sed -i 's/wheel/sudo/' config.h
+fi
 sudo make clean install
 
 ## Disable pc speaker
